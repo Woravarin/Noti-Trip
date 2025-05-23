@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noti Trip</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+    header {
+      background-color: #a8e6a3;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .greeting {
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .card {
+      background-color: #f4fff3;
+      border: 1px solid #d1ecd0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #388e3c;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Noti Trip</h1>
+    <p>Notification for your trip in Trang, Thailand</p>
+  </header>
+
+  <div class="greeting" id="greeting"></div>
+
+  <div class="section">
+    <div class="card">
+      <h2>📍 สถานที่ท่องเที่ยวแนะนำ</h2>
+      <ul>
+        <li><a href="https://maps.app.goo.gl/nvYXsSnBkK6nYDy97" target="_blank">ถ้ำมรกต</a></li>
+        <li><a href="https://maps.app.goo.gl/8Gq5PfPP5yULqJ2Y7" target="_blank">หาดปากเมง</a></li>
+        <li><a href="https://maps.app.goo.gl/TuPNNCrRXhTeMEaZA" target="_blank">เกาะกระดาน</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🍽 ร้านอาหารแนะนำ</h2>
+      <ul>
+        <li><a href="https://maps.app.goo.gl/bEwWBAXeBDGVz7vE6" target="_blank">ร้านโกปี๊</a></li>
+        <li><a href="https://maps.app.goo.gl/HaLgVjzqC2dZq6gb6" target="_blank">ร้านท่าปอมซีฟู้ด</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🏨 โรงแรมแนะนำ</h2>
+      <ul>
+        <li><a href="https://maps.app.goo.gl/k8oUzK56X6GLFob28" target="_blank">Eco Inn Trang Hotel</a></li>
+        <li><a href="https://maps.app.goo.gl/Yub5rcqxj1XDWnDW7" target="_blank">โรงแรมเรือรัษฎา</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Noti Trip | Developed by Kim
+  </footer>
+
+  <script>
+    const greetingEl = document.getElementById('greeting');
+    const now = new Date();
+    const hour = now.getHours();
+
+    let greeting = 'สวัสดี';
+    if (hour >= 5 && hour < 11) greeting = 'สวัสดีตอนเช้า 🌤';
+    else if (hour >= 11 && hour < 15) greeting = 'สวัสดีตอนเที่ยง ☀️';
+    else if (hour >= 15 && hour < 18) greeting = 'สวัสดีตอนบ่าย 🌥';
+    else if (hour >= 18 || hour < 5) greeting = 'สวัสดีตอนค่ำ 🌙';
+
+    greetingEl.innerText = greeting;
+  </script>
+</body>
+</html>
