@@ -120,16 +120,31 @@
     <button onclick="showSection('hotel')">🏨 ที่พัก</button>
   </div>
 
-  <div class="section" id="food"> <!-- ร้านอาหาร -->
-    <!-- cards here -->
+  <div class="section" id="food">
+    <div class="card">
+      <h2>ร้านโกช้อย</h2>
+      <img src="https://via.placeholder.com/400x200" alt="ร้านอาหาร">
+      <p>อาหารทะเลสดใหม่ อร่อยระดับตำนาน</p>
+      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
+    </div>
   </div>
 
-  <div class="section" id="travel"> <!-- ที่เที่ยว -->
-    <!-- cards here -->
+  <div class="section" id="travel">
+    <div class="card">
+      <h2>ถ้ำมรกต</h2>
+      <img src="https://via.placeholder.com/400x200" alt="ที่เที่ยว">
+      <p>สถานที่ท่องเที่ยวสุดฮิตในตรัง</p>
+      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
+    </div>
   </div>
 
-  <div class="section" id="hotel"> <!-- ที่พัก -->
-    <!-- cards here -->
+  <div class="section" id="hotel">
+    <div class="card">
+      <h2>โรงแรมเรือรัษฎา</h2>
+      <img src="https://via.placeholder.com/400x200" alt="ที่พัก">
+      <p>ที่พักหรูใจกลางเมืองตรัง</p>
+      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
+    </div>
   </div>
 
   <footer>
@@ -151,7 +166,6 @@
 
     greetingEl.innerText = greeting;
 
-    // แสดงทักทาย 3 วิ แล้ว fade out
     setTimeout(() => {
       greetingEl.style.opacity = '0';
       setTimeout(() => {
