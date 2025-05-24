@@ -23,9 +23,24 @@
     .greeting {
       font-size: 1.5rem;
       text-align: center;
-      margin: 1.5rem 0;
+      margin: 2rem 0;
+    }
+    .menu {
+      display: none;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .menu button {
+      font-size: 1.2rem;
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #a8e6a3;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
     .section {
+      display: none;
       max-width: 900px;
       margin: auto;
       padding: 1rem;
@@ -40,6 +55,14 @@
     .card h2 {
       margin-top: 0;
       color: #388e3c;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      margin: 0.3rem 0;
     }
     footer {
       text-align: center;
@@ -56,31 +79,61 @@
   </header>
 
   <div class="greeting" id="greeting"></div>
+  <div class="menu" id="menu">
+    <p>คุณต้องการไปที่ไหนก่อน?</p>
+    <button onclick="showSection('food')">🍽 ร้านอาหาร</button>
+    <button onclick="showSection('travel')">📍 ที่เที่ยว</button>
+    <button onclick="showSection('hotel')">🏨 ที่พัก</button>
+  </div>
 
-  <div class="section">
+  <div class="section" id="food">
     <div class="card">
-      <h2>📍 สถานที่ท่องเที่ยวแนะนำ</h2>
-      <ul>
-        <li><a href="https://maps.app.goo.gl/nvYXsSnBkK6nYDy97" target="_blank">ถ้ำมรกต</a></li>
-        <li><a href="https://maps.app.goo.gl/8Gq5PfPP5yULqJ2Y7" target="_blank">หาดปากเมง</a></li>
-        <li><a href="https://maps.app.goo.gl/TuPNNCrRXhTeMEaZA" target="_blank">เกาะกระดาน</a></li>
-      </ul>
+      <h2>ร้านโกปี๊</h2>
+      <img src="https://i.imgur.com/B6v1OKv.jpg" alt="ร้านโกปี๊">
+      <p>รีวิว: ร้านอาหารเช้าชื่อดังประจำเมือง</p>
+      <p>ที่อยู่: ถ.ราชดำเนิน ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/bEwWBAXeBDGVz7vE6" target="_blank">ดูเส้นทางใน Google Maps</a></p>
     </div>
-
     <div class="card">
-      <h2>🍽 ร้านอาหารแนะนำ</h2>
-      <ul>
-        <li><a href="https://maps.app.goo.gl/bEwWBAXeBDGVz7vE6" target="_blank">ร้านโกปี๊</a></li>
-        <li><a href="https://maps.app.goo.gl/HaLgVjzqC2dZq6gb6" target="_blank">ร้านท่าปอมซีฟู้ด</a></li>
-      </ul>
+      <h2>ร้านท่าปอมซีฟู้ด</h2>
+      <img src="https://i.imgur.com/4wzT9FC.jpg" alt="ร้านท่าปอมซีฟู้ด">
+      <p>รีวิว: อาหารทะเลสด ริมน้ำ บรรยากาศดี</p>
+      <p>ที่อยู่: ต.หาดสำราญ ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/HaLgVjzqC2dZq6gb6" target="_blank">ดูเส้นทางใน Google Maps</a></p>
     </div>
+  </div>
 
+  <div class="section" id="travel">
     <div class="card">
-      <h2>🏨 โรงแรมแนะนำ</h2>
-      <ul>
-        <li><a href="https://maps.app.goo.gl/k8oUzK56X6GLFob28" target="_blank">Eco Inn Trang Hotel</a></li>
-        <li><a href="https://maps.app.goo.gl/Yub5rcqxj1XDWnDW7" target="_blank">โรงแรมเรือรัษฎา</a></li>
-      </ul>
+      <h2>ถ้ำมรกต</h2>
+      <img src="https://i.imgur.com/oJ2mEKH.jpg" alt="ถ้ำมรกต">
+      <p>รีวิว: ไฮไลต์ของตรัง ต้องว่ายน้ำเข้าไป</p>
+      <p>ที่อยู่: เกาะมุก ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/nvYXsSnBkK6nYDy97" target="_blank">ดูเส้นทางใน Google Maps</a></p>
+    </div>
+    <div class="card">
+      <h2>หาดปากเมง</h2>
+      <img src="https://i.imgur.com/GXUO7eA.jpg" alt="หาดปากเมง">
+      <p>รีวิว: หาดทรายยาว วิวสวย น้ำทะเลใส</p>
+      <p>ที่อยู่: อ.สิเกา ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/8Gq5PfPP5yULqJ2Y7" target="_blank">ดูเส้นทางใน Google Maps</a></p>
+    </div>
+  </div>
+
+  <div class="section" id="hotel">
+    <div class="card">
+      <h2>Eco Inn Trang</h2>
+      <img src="https://i.imgur.com/xzYdGSk.jpg" alt="Eco Inn Trang">
+      <p>รีวิว: โรงแรมประหยัด ใกล้ตัวเมือง</p>
+      <p>ที่อยู่: ถ.วิเศษกุล ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/k8oUzK56X6GLFob28" target="_blank">ดูเส้นทางใน Google Maps</a></p>
+    </div>
+    <div class="card">
+      <h2>โรงแรมเรือรัษฎา</h2>
+      <img src="https://i.imgur.com/HCl6DP3.jpg" alt="โรงแรมเรือรัษฎา">
+      <p>รีวิว: โรงแรมหรูระดับ 4 ดาว มีสระว่ายน้ำ</p>
+      <p>ที่อยู่: ถ.พัทลุง ตรัง</p>
+      <p><a href="https://maps.app.goo.gl/Yub5rcqxj1XDWnDW7" target="_blank">ดูเส้นทางใน Google Maps</a></p>
     </div>
   </div>
 
@@ -90,6 +143,8 @@
 
   <script>
     const greetingEl = document.getElementById('greeting');
+    const menuEl = document.getElementById('menu');
+
     const now = new Date();
     const hour = now.getHours();
 
@@ -97,9 +152,19 @@
     if (hour >= 5 && hour < 11) greeting = 'สวัสดีตอนเช้า 🌤';
     else if (hour >= 11 && hour < 15) greeting = 'สวัสดีตอนเที่ยง ☀️';
     else if (hour >= 15 && hour < 18) greeting = 'สวัสดีตอนบ่าย 🌥';
-    else if (hour >= 18 || hour < 5) greeting = 'สวัสดีตอนค่ำ 🌙';
+    else greeting = 'สวัสดีตอนค่ำ 🌙';
 
     greetingEl.innerText = greeting;
+
+    setTimeout(() => {
+      greetingEl.style.display = 'none';
+      menuEl.style.display = 'block';
+    }, 3000);
+
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
   </script>
 </body>
 </html>
