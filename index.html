@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noti Trip</title>
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
 
@@ -99,21 +96,21 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .ad-message {
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      margin-top: 1rem;
-    }
-    .adsense-slot {
-      text-align: center;
-      margin: 2rem 0;
-    }
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       color: #777;
+    }
+    .back-button {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #ffe082;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -134,7 +131,6 @@
     <h1>Noti Trip</h1>
     <p>Notification for your trip in Trang, Thailand</p>
   </header>
-
   <div class="greeting" id="greeting"></div>
   <div class="menu" id="menu">
     <p>คุณต้องการไปที่ไหนก่อน?</p>
@@ -142,74 +138,37 @@
     <button onclick="showSection('travel')">📍 ที่เที่ยว</button>
     <button onclick="showSection('hotel')">🏨 ที่พัก</button>
   </div>
-
   <div class="section" id="food">
-    <p class="ad-message">โฆษณาจะปรากฏที่นี่เมื่อร้านค้ายืนยันการเข้าร่วม</p>
-    <div class="adsense-slot">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+    <button class="back-button" onclick="backToMenu()">🔙 กลับเมนูหลัก</button>
+    <p style="text-align:center;color:#aaa;">กรุณาติดต่อเพื่อแสดงร้านอาหาร</p>
   </div>
   <div class="section" id="travel">
+    <button class="back-button" onclick="backToMenu()">🔙 กลับเมนูหลัก</button>
+    <button onclick="getLocation()" style="margin-bottom:1rem;">📍 ใช้ตำแหน่งของคุณ</button>
+    <div id="geo-info"></div>
     <div class="card">
       <h2>เกาะกระดาน</h2>
       <img src="https://www.trangsea.com/wp-content/uploads/2020/03/koh-kradan-trang.jpg" alt="เกาะกระดาน" />
       <p>เกาะสวรรค์น้ำใส หาดทรายขาว มีแนวปะการังสวยงาม</p>
-      <a href="https://goo.gl/maps/nM2VfiSYJqY9ikJZ6" target="_blank">📍 ดูใน Google Maps</a>
-    </div>
-    <div class="adsense-slot">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <a id="map-link" href="https://www.google.com/maps?q=7.311,99.144" target="_blank">📍 ดูใน Google Maps</a>
     </div>
   </div>
   <div class="section" id="hotel">
-    <p class="ad-message">โฆษณาจะปรากฏที่นี่เมื่อโรงแรมยืนยันการเข้าร่วม</p>
-    <div class="adsense-slot">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+    <button class="back-button" onclick="backToMenu()">🔙 กลับเมนูหลัก</button>
+    <p style="text-align:center;color:#aaa;">กรุณาติดต่อเพื่อแสดงโรงแรม</p>
   </div>
-
-  <footer>
-    &copy; 2025 Noti Trip | Developed by Kim
-  </footer>
-
+  <footer>&copy; 2025 Noti Trip | Developed by Kim</footer>
   <script>
     const greetingEl = document.getElementById('greeting');
     const menuEl = document.getElementById('menu');
-
     const now = new Date();
     const hour = now.getHours();
-
     let greeting = 'สวัสดี';
     if (hour >= 5 && hour < 11) greeting = 'สวัสดีตอนเช้า 🌤';
     else if (hour >= 11 && hour < 15) greeting = 'สวัสดีตอนเที่ยง ☀️';
     else if (hour >= 15 && hour < 18) greeting = 'สวัสดีตอนบ่าย 🌥';
     else greeting = 'สวัสดีตอนค่ำ 🌙';
-
     greetingEl.innerText = greeting;
-
     setTimeout(() => {
       greetingEl.style.opacity = '0';
       setTimeout(() => {
@@ -227,7 +186,41 @@
       const selected = document.getElementById(id);
       selected.style.display = 'block';
       setTimeout(() => selected.style.opacity = '1', 100);
+      menuEl.style.display = 'none';
+    }
+
+    function backToMenu() {
+      document.querySelectorAll('.section').forEach(el => {
+        el.style.display = 'none';
+        el.style.opacity = '0';
+      });
+      menuEl.style.display = 'block';
+      setTimeout(() => menuEl.style.opacity = '1', 100);
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successLocation, errorLocation);
+      } else {
+        alert("เบราว์เซอร์ของคุณไม่รองรับการระบุตำแหน่ง");
+      }
+    }
+
+    function successLocation(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const geoInfo = document.getElementById('geo-info');
+      geoInfo.innerHTML = `<p style="color:#2e7d32;font-weight:bold;">🧭 กำลังแสดงสถานที่ท่องเที่ยวใกล้คุณ (${lat.toFixed(4)}, ${lon.toFixed(4)})</p>`;
+
+      const mapLink = document.getElementById('map-link');
+      mapLink.href = `https://www.google.com/maps/dir/?api=1&destination=7.311,99.144&origin=${lat},${lon}`;
+    }
+
+    function errorLocation(error) {
+      const geoInfo = document.getElementById('geo-info');
+      geoInfo.innerHTML = `<p style="color:red;">❌ ไม่สามารถระบุตำแหน่ง: ${error.message}</p>`;
     }
   </script>
 </body>
 </html>
+
