@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noti Trip</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
+      font-family: 'Mali', cursive;
+      background: linear-gradient(to bottom right, #f9fbe7, #fffde7);
       color: #333;
     }
     header {
-      background-color: #a8e6a3;
+      background-color: #ffe082;
       padding: 1rem;
       text-align: center;
       animation: fadeInDown 1s ease-out forwards;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      color: #4e342e;
     }
     .greeting {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       text-align: center;
       margin: 2rem 0;
       opacity: 0;
@@ -37,17 +40,17 @@
       animation-delay: 3s;
     }
     .menu button {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin: 0.5rem;
       padding: 0.8rem 1.5rem;
-      background-color: #a8e6a3;
+      background-color: #ffd54f;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       transition: transform 0.2s, background-color 0.3s;
     }
     .menu button:hover {
-      background-color: #81c784;
+      background-color: #ffca28;
       transform: scale(1.05);
     }
     .section {
@@ -59,12 +62,12 @@
       animation: fadeIn 0.8s ease-in forwards;
     }
     .card {
-      background-color: #f4fff3;
-      border: 1px solid #d1ecd0;
-      border-radius: 8px;
+      background-color: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 10px;
       padding: 1rem;
       margin-bottom: 1rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
     .card:hover {
@@ -72,11 +75,11 @@
     }
     .card h2 {
       margin-top: 0;
-      color: #388e3c;
+      color: #6d4c41;
     }
     .card img {
       max-width: 100%;
-      border-radius: 5px;
+      border-radius: 8px;
       margin-bottom: 0.5rem;
       transition: transform 0.3s ease;
     }
@@ -85,6 +88,12 @@
     }
     .card p {
       margin: 0.3rem 0;
+    }
+    .ad-message {
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      margin-top: 1rem;
     }
     footer {
       text-align: center;
@@ -121,30 +130,13 @@
   </div>
 
   <div class="section" id="food">
-    <div class="card">
-      <h2>ร้านโกช้อย</h2>
-      <img src="https://via.placeholder.com/400x200" alt="ร้านอาหาร">
-      <p>อาหารทะเลสดใหม่ อร่อยระดับตำนาน</p>
-      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
-    </div>
+    <p class="ad-message">โฆษณาจะปรากฏที่นี่เมื่อร้านค้ายืนยันการเข้าร่วม</p>
   </div>
-
   <div class="section" id="travel">
-    <div class="card">
-      <h2>ถ้ำมรกต</h2>
-      <img src="https://via.placeholder.com/400x200" alt="ที่เที่ยว">
-      <p>สถานที่ท่องเที่ยวสุดฮิตในตรัง</p>
-      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
-    </div>
+    <p class="ad-message">โฆษณาจะปรากฏที่นี่เมื่อสถานที่ท่องเที่ยวยืนยันการเข้าร่วม</p>
   </div>
-
   <div class="section" id="hotel">
-    <div class="card">
-      <h2>โรงแรมเรือรัษฎา</h2>
-      <img src="https://via.placeholder.com/400x200" alt="ที่พัก">
-      <p>ที่พักหรูใจกลางเมืองตรัง</p>
-      <p><a href="https://www.google.com/maps" target="_blank">ดูเส้นทาง</a></p>
-    </div>
+    <p class="ad-message">โฆษณาจะปรากฏที่นี่เมื่อโรงแรมยืนยันการเข้าร่วม</p>
   </div>
 
   <footer>
