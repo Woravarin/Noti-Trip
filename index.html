@@ -15,7 +15,7 @@
       background-color: #a8e6a3;
       padding: 1rem;
       text-align: center;
-      animation: fadeInDown 1s ease-out;
+      animation: fadeInDown 1s ease-out forwards;
     }
     header h1 {
       margin: 0;
@@ -32,7 +32,9 @@
       display: none;
       text-align: center;
       margin: 2rem 0;
-      animation: fadeInUp 1s ease-out;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 3s;
     }
     .menu button {
       font-size: 1.2rem;
@@ -53,7 +55,8 @@
       max-width: 900px;
       margin: auto;
       padding: 1rem;
-      animation: fadeIn 0.8s ease-in;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in forwards;
     }
     .card {
       background-color: #f4fff3;
@@ -148,14 +151,24 @@
 
     greetingEl.innerText = greeting;
 
+    // แสดงทักทาย 3 วิ แล้ว fade out
     setTimeout(() => {
-      greetingEl.style.display = 'none';
-      menuEl.style.display = 'block';
+      greetingEl.style.opacity = '0';
+      setTimeout(() => {
+        greetingEl.style.display = 'none';
+        menuEl.style.opacity = '1';
+        menuEl.style.display = 'block';
+      }, 1000);
     }, 3000);
 
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+      document.querySelectorAll('.section').forEach(el => {
+        el.style.display = 'none';
+        el.style.opacity = '0';
+      });
+      const selected = document.getElementById(id);
+      selected.style.display = 'block';
+      setTimeout(() => selected.style.opacity = '1', 100);
     }
   </script>
 </body>
