@@ -15,6 +15,7 @@
       background-color: #a8e6a3;
       padding: 1rem;
       text-align: center;
+      animation: fadeInDown 1s ease-out;
     }
     header h1 {
       margin: 0;
@@ -24,11 +25,14 @@
       font-size: 1.5rem;
       text-align: center;
       margin: 2rem 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
     .menu {
       display: none;
       text-align: center;
       margin: 2rem 0;
+      animation: fadeInUp 1s ease-out;
     }
     .menu button {
       font-size: 1.2rem;
@@ -38,12 +42,18 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .menu button:hover {
+      background-color: #81c784;
+      transform: scale(1.05);
     }
     .section {
       display: none;
       max-width: 900px;
       margin: auto;
       padding: 1rem;
+      animation: fadeIn 0.8s ease-in;
     }
     .card {
       background-color: #f4fff3;
@@ -51,6 +61,11 @@
       border-radius: 8px;
       padding: 1rem;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
     }
     .card h2 {
       margin-top: 0;
@@ -60,6 +75,10 @@
       max-width: 100%;
       border-radius: 5px;
       margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    .card img:hover {
+      transform: scale(1.02);
     }
     .card p {
       margin: 0.3rem 0;
@@ -69,6 +88,18 @@
       padding: 1rem;
       font-size: 0.9rem;
       color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -86,55 +117,16 @@
     <button onclick="showSection('hotel')">🏨 ที่พัก</button>
   </div>
 
-  <div class="section" id="food">
-    <div class="card">
-      <h2>ร้านโกปี๊</h2>
-      <img src="https://i.imgur.com/B6v1OKv.jpg" alt="ร้านโกปี๊">
-      <p>รีวิว: ร้านอาหารเช้าชื่อดังประจำเมือง</p>
-      <p>ที่อยู่: ถ.ราชดำเนิน ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/bEwWBAXeBDGVz7vE6" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
-    <div class="card">
-      <h2>ร้านท่าปอมซีฟู้ด</h2>
-      <img src="https://i.imgur.com/4wzT9FC.jpg" alt="ร้านท่าปอมซีฟู้ด">
-      <p>รีวิว: อาหารทะเลสด ริมน้ำ บรรยากาศดี</p>
-      <p>ที่อยู่: ต.หาดสำราญ ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/HaLgVjzqC2dZq6gb6" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
+  <div class="section" id="food"> <!-- ร้านอาหาร -->
+    <!-- cards here -->
   </div>
 
-  <div class="section" id="travel">
-    <div class="card">
-      <h2>ถ้ำมรกต</h2>
-      <img src="https://i.imgur.com/oJ2mEKH.jpg" alt="ถ้ำมรกต">
-      <p>รีวิว: ไฮไลต์ของตรัง ต้องว่ายน้ำเข้าไป</p>
-      <p>ที่อยู่: เกาะมุก ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/nvYXsSnBkK6nYDy97" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
-    <div class="card">
-      <h2>หาดปากเมง</h2>
-      <img src="https://i.imgur.com/GXUO7eA.jpg" alt="หาดปากเมง">
-      <p>รีวิว: หาดทรายยาว วิวสวย น้ำทะเลใส</p>
-      <p>ที่อยู่: อ.สิเกา ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/8Gq5PfPP5yULqJ2Y7" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
+  <div class="section" id="travel"> <!-- ที่เที่ยว -->
+    <!-- cards here -->
   </div>
 
-  <div class="section" id="hotel">
-    <div class="card">
-      <h2>Eco Inn Trang</h2>
-      <img src="https://i.imgur.com/xzYdGSk.jpg" alt="Eco Inn Trang">
-      <p>รีวิว: โรงแรมประหยัด ใกล้ตัวเมือง</p>
-      <p>ที่อยู่: ถ.วิเศษกุล ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/k8oUzK56X6GLFob28" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
-    <div class="card">
-      <h2>โรงแรมเรือรัษฎา</h2>
-      <img src="https://i.imgur.com/HCl6DP3.jpg" alt="โรงแรมเรือรัษฎา">
-      <p>รีวิว: โรงแรมหรูระดับ 4 ดาว มีสระว่ายน้ำ</p>
-      <p>ที่อยู่: ถ.พัทลุง ตรัง</p>
-      <p><a href="https://maps.app.goo.gl/Yub5rcqxj1XDWnDW7" target="_blank">ดูเส้นทางใน Google Maps</a></p>
-    </div>
+  <div class="section" id="hotel"> <!-- ที่พัก -->
+    <!-- cards here -->
   </div>
 
   <footer>
